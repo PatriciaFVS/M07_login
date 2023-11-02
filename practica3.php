@@ -7,10 +7,7 @@
 </head>
 <body>
     <?php
-    define ("DB_HOST","localhost");
-    define ("DB_NAME","users");
-    define("DB_USER","root");
-    define("DB_PSW",'');
+    include "/xampp/htdocs/M07/M07_login/dbconfig.php";
 
     $user_id= $_POST["user_id"];
     $name= $_POST["name"];
@@ -25,7 +22,7 @@
     if(!$conecta){
         echo "Error de connexió: ". mysqli_connect_error();
     }else{
-        $query ="INSERT INTO 'user'(`user_id`, `name`, `surname`, `password`, `email`, `rol`,`active` ) VALUES (`$user_id`,`$name`,`$surname`,`$password`,`$email`,`$rol`,`$active`)";
+        $query ="INSERT INTO `user`(`user_id`, `name`, `surname`, `password`, `email`, `rol`,`active` ) VALUES ($user_id,'$name','$surname',$password,'$email','$rol','$active')";
         
     }
 
