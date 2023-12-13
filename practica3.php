@@ -7,7 +7,8 @@
 </head>
 <body>
     <?php
-    include "/xampp/htdocs/M07/M07_login/dbconfig.php";
+    include "dbconfig.php";
+    
 
     $user_id= $_POST["user_id"];
     $name= $_POST["name"];
@@ -24,10 +25,11 @@
     }else{
         $query ="INSERT INTO `user`(`user_id`, `name`, `surname`, `password`, `email`, `rol`,`active` ) VALUES ($user_id,'$name','$surname',$password,'$email','$rol','$active')";
         
+        mysqli_close($conecta);
     }
 
     if (mysqli_query($conecta, $query)) {
-        echo "Ben fet";
+        header
     } else {
         echo "Error  " . mysqli_error($conecta);
     }
